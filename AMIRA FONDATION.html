@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Amira Al-dahab - Solicitud</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #1e88e5;
+      --secondary: #43a047;
+      --dark: #1f2933;
+      --light: #f4f6f8;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: var(--light);
+      color: #333;
+    }
+    
+    /* HERO */
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 45vh;
+      min-height: 350px;
+      background: #2c3e50 url("./img/Amira-Hassan.webp") center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1;
+    }
+    .hero::after { content: ""; position: absolute; inset: 0; background: rgba(0, 0, 0, 0.6); }
+    
+    .hero-content {
+      position: relative;
+      text-align: center;
+      color: white;
+      padding: 20px;
+      z-index: 2;
+    }
+    .hero-content h1 { 
+      font-size: 2.5rem; 
+      margin: 0; 
+      font-weight: 700;
+    }
+    .verified { color: #40c4ff; margin-left: 5px; font-size: 1.8rem; }
+    .arabic-name { font-size: 1.8rem; margin-top: 5px; font-weight: 400; display: block; }
+
+    /* CARD */
+    .container {
+      max-width: 700px;
+      margin: -60px auto 60px;
+      padding: 0 15px;
+      position: relative;
+      z-index: 5;
+    }
+    .card {
+      background: white;
+      border-radius: 15px;
+      padding: 30px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+    .card h2 { 
+      text-align: center; 
+      color: var(--dark); 
+      margin-top: 0;
+      border-bottom: 2px solid #f0f0f0;
+      padding-bottom: 15px;
+      margin-bottom: 25px;
+    }
+
+    /* FORM STYLES */
+    .form-group { margin-bottom: 20px; }
+    label { display: block; margin-bottom: 8px; font-weight: 600; color: #444; font-size: 0.95rem; }
+    .subtitle-label { display: block; font-size: 0.8rem; color: #888; margin-top: -5px; margin-bottom: 8px; }
+
+    input, select, textarea {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        font-family: inherit;
+        font-size: 1rem;
+        background-color: #fafafa;
+        transition: 0.3s;
+    }
+    input:focus, select:focus, textarea:focus {
+        outline: none;
+        border-color: var(--primary);
+        background-color: white;
+        box-shadow: 0 0 5px rgba(30, 136, 229, 0.2);
+    }
+
+    .checkbox-group {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: #f1f8e9;
+      padding: 15px;
+      border-radius: 8px;
+      margin-top: 20px;
+    }
+    .checkbox-group input { width: auto; margin: 0; }
+    .checkbox-group label { margin: 0; font-weight: normal; cursor: pointer;}
+
+    .btn-submit {
+      width: 100%;
+      padding: 15px;
+      background: linear-gradient(135deg, #1e88e5, #1565c0);
+      color: white;
+      border: none;
+      border-radius: 30px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      cursor: pointer;
+      margin-top: 25px;
+      box-shadow: 0 4px 15px rgba(21, 101, 192, 0.3);
+      transition: transform 0.2s;
+    }
+    .btn-submit:hover { transform: translateY(-2px); }
+
+    footer { text-align: center; padding: 20px; color: #888; font-size: 0.85rem; }
+
+  </style>
+</head>
+<body>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Amira Al-dahab <span class="verified">✓</span></h1>
+      <span class="arabic-name">أميرة حسن</span>
+    </div>
+  </section>
+
+  <main class="container">
+    <div class="card">
+      <h2>Formulario de Solicitud de Ayuda</h2>
+
+      <form action="https://formspree.io/f/meeejaag" method="POST">
+        
+        <div class="form-group">
+            <label>Nombre y apellido</label>
+            <input type="text" name="nombre" required placeholder="Escribe tu nombre completo">
+        </div>
+
+        <div class="form-group">
+            <label>Edad</label>
+            <span class="subtitle-label">Debe ser mayor de 18 y menor de 100 años</span>
+            <input type="number" name="edad" min="18" max="99" required placeholder="Ej. 35">
+        </div>
+
+        <div class="form-group">
+            <label>Ocupación</label>
+            <input type="text" name="ocupacion" required placeholder="Ej. Ama de casa, Estudiante...">
+        </div>
+
+        <div class="form-group">
+            <label>Estado civil</label>
+            <select name="estado_civil" required>
+                <option value="" disabled selected>Seleccione una opción</option>
+                <option value="Soltero">Soltero</option>
+                <option value="Casado">Casado</option>
+                <option value="Union Libre">Unión libre</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Cantidad de hijos</label>
+            <select name="hijos" required>
+                <option value="" disabled selected>Seleccione</option>
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="Mas de 8">Más de 8</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>País</label>
+            <select name="pais" required>
+                <option value="" disabled selected>Seleccione un país</option>
+                <option value="Dominican Republic">Dominican Republic</option>
+                <option value="Mexico">Mexico</option>
+                <option value="Colombia">Colombia</option>
+                <option value="Venezuela">Venezuela</option>
+                <option value="Argentina">Argentina</option>
+                <option value="Peru">Peru</option>
+                <option value="Ecuador">Ecuador</option>
+                <option value="United States">United States</option>
+                <option value="Spain">Spain</option>
+                <option value="---------------" disabled>---------------</option>
+                <option value="Afghanistan">Afghanistan</option>
+                <option value="Bolivia">Bolivia</option>
+                <option value="Chile">Chile</option>
+                <option value="Costa Rica">Costa Rica</option>
+                <option value="Cuba">Cuba</option>
+                <option value="El Salvador">El Salvador</option>
+                <option value="Guatemala">Guatemala</option>
+                <option value="Honduras">Honduras</option>
+                <option value="Nicaragua">Nicaragua</option>
+                <option value="Panama">Panama</option>
+                <option value="Paraguay">Paraguay</option>
+                <option value="Puerto Rico">Puerto Rico</option>
+                <option value="Uruguay">Uruguay</option>
+                <option value="Otro">Otro</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Número celular</label>
+            <input type="tel" name="celular" placeholder="+--" required>
+        </div>
+
+        <div class="form-group">
+            <label>Dirección de casa exacta</label>
+            <textarea name="direccion" rows="2" placeholder="Calle, número, sector..." required></textarea>
+        </div>
+
+        <div class="form-group">
+            <label>Cantidad de ayuda a recibir (USD)</label>
+            <input type="number" name="monto_solicitado" placeholder="Ej. 500" required>
+        </div>
+
+        <div class="form-group">
+            <label>¿Para qué usará el dinero?</label>
+            <textarea name="uso_dinero" rows="3" required></textarea>
+        </div>
+
+        <div class="checkbox-group">
+            <input type="checkbox" id="confirmacion" name="confirmacion" required>
+            <label for="confirmacion">Confirmo que la información suministrada es correcta.</label>
+        </div>
+
+        <button type="submit" class="btn-submit">ENVIAR SOLICITUD</button>
+
+      </form>
+    </div>
+  </main>
+
+  <footer>
+    © 2025 Fundación Amira Al-dahab · Todos los derechos reservados
+  </footer>
+
+</body>
+</html>
